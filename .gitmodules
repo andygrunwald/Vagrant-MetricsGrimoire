@@ -1,0 +1,6 @@
+[submodule "cookbooks/repositoryhandler"]
+	path = cookbooks/repositoryhandler
+	url = https://github.com/andygrunwald/chef-repositoryhandler.git
+[submodule "cookbooks/cvsanaly"]
+	path = cookbooks/cvsanaly
+	url = https://github.com/andygrunwald/chef-cvsanaly.git
