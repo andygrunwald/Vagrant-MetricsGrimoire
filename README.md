@@ -16,6 +16,7 @@ This setup uses the [Chef provider](http://www.getchef.com/chef/) with the cookb
 
 * Clone it (`git clone https://github.com/andygrunwald/Vagrant-MetricsGrimoire.git`)
 * Switch to the directory (`cd Vagrant-MetricsGrimoire`)
+* Get submodules (`git submodule init`)
 * Start the machine (`vagrant up`)
 * Login to the machine (`vagrant ssh`)
 * Play around with
