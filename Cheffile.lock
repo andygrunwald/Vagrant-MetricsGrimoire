@@ -1,0 +1,47 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    build-essential (2.0.0)
+    chef_handler (1.1.6)
+    dmg (2.2.0)
+    git (4.0.2)
+      build-essential (>= 0.0.0)
+      dmg (>= 0.0.0)
+      runit (>= 1.0.0)
+      windows (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    python (1.4.6)
+      build-essential (>= 0.0.0)
+      yum-epel (>= 0.0.0)
+    runit (1.5.10)
+      build-essential (>= 0.0.0)
+      yum (~> 3.0)
+      yum-epel (>= 0.0.0)
+    windows (1.30.2)
+      chef_handler (>= 0.0.0)
+    yum (3.2.0)
+    yum-epel (0.3.6)
+      yum (~> 3.0)
+
+GIT
+  remote: https://github.com/andygrunwald/chef-cvsanaly
+  ref: master
+  sha: cf571eacdf7056afbc00da9f43a6a717c17bf952
+  specs:
+    cvsanaly (1.2.0)
+      repositoryhandler (>= 0.0.0)
+
+GIT
+  remote: https://github.com/andygrunwald/chef-repositoryhandler
+  ref: master
+  sha: e535b2f1423559cae2562dcedc79157118fa81a1
+  specs:
+    repositoryhandler (1.2.0)
+      git (>= 0.0.0)
+      python (>= 0.0.0)
+
+DEPENDENCIES
+  cvsanaly (>= 0)
+  repositoryhandler (>= 0)
+

@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook "repositoryhandler",
+	:git => "https://github.com/andygrunwald/chef-repositoryhandler",
+	:ref => "master"
+
+cookbook "cvsanaly",
+	:git => "https://github.com/andygrunwald/chef-cvsanaly",
+	:ref => "master"
