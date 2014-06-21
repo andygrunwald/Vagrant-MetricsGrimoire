@@ -8,25 +8,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.network "private_network", ip: "192.168.33.55"
 
-  # Install chef client
-  config.vm.provision "shell" do |s|
-    s.inline = "curl -L https://www.opscode.com/chef/install.sh | sudo bash"
-  end
+  # Install chef client (if necessary)
+  config.vm.provision "shell", path: "scripts/install-chef.sh"
 
   config.vm.provision "chef_solo" do |chef|
+    chef.custom_config_path = "Vagrantfile.chef"
     chef.cookbooks_path = "cookbooks"
-    chef.add_recipe "cvsanaly"
-    chef.json = {
-      :repositoryhandler => {
-        :destination => '/tmp/MetricsGrimoire/RepositoryHandler',
-        :owner => 'vagrant',
-        :group => 'vagrant'
-      },
-      :cvsanaly => {
-        :destination => '/tmp/MetricsGrimoire/CVSAnalY',
-        :owner => 'vagrant',
-        :group => 'vagrant'
-      },
-    }
+    chef.add_recipe "apt"
+    chef.add_recipe "grimoire::cvsanaly"
+    chef.add_recipe "grimoire::mlstats"
   end
 end

@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: build-essential
-# Recipe:: rhel
+# Cookbook Name:: apt
+# Attributes:: default
 #
-# Copyright 2008-2013, Opscode, Inc.
+# Copyright 2009-2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,20 +17,13 @@
 # limitations under the License.
 #
 
-potentially_at_compile_time do
-  package 'autoconf'
-  package 'bison'
-  package 'flex'
-  package 'gcc'
-  package 'gcc-c++'
-  package 'kernel-devel'
-  package 'make'
-  package 'm4'
-  package 'patch'
-
-  # Ensure GCC 4 is available on older pre-6 EL
-  if node['platform_version'].to_i < 6
-    package 'gcc44'
-    package 'gcc44-c++'
-  end
-end
+default['apt']['cacher-client']['restrict_environment'] = false
+default['apt']['cacher_dir'] = '/var/cache/apt-cacher-ng'
+default['apt']['cacher_interface'] = nil
+default['apt']['cacher_port'] = 3142
+default['apt']['caching_server'] = false
+default['apt']['compiletime'] = false
+default['apt']['compile_time_update'] = false
+default['apt']['key_proxy'] = ''
+default['apt']['cache_bypass'] = {}
+default['apt']['periodic_update_min_delay'] = 86_400

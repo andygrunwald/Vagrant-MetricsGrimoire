@@ -1,8 +1,8 @@
 #
-# Cookbook Name:: build-essential
-# Recipe:: rhel
+# Cookbook Name:: apt
+# library:: network
 #
-# Copyright 2008-2013, Opscode, Inc.
+# Copyright 2013, Opscode, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -17,20 +17,15 @@
 # limitations under the License.
 #
 
-potentially_at_compile_time do
-  package 'autoconf'
-  package 'bison'
-  package 'flex'
-  package 'gcc'
-  package 'gcc-c++'
-  package 'kernel-devel'
-  package 'make'
-  package 'm4'
-  package 'patch'
-
-  # Ensure GCC 4 is available on older pre-6 EL
-  if node['platform_version'].to_i < 6
-    package 'gcc44'
-    package 'gcc44-c++'
+module ::Apt
+  def interface_ipaddress(host, interface)
+    if interface
+      addresses = host['network']['interfaces'][interface]['addresses']
+      addresses.select do |ip, data|
+        return ip if data['family'].eql?('inet')
+      end
+    else
+      return host.ipaddress
+    end
   end
 end
