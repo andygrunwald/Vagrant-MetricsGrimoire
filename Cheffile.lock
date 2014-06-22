@@ -1,6 +1,10 @@
 SITE
   remote: http://community.opscode.com/api/v1
   specs:
+    apache2 (1.10.4)
+      iptables (>= 0.0.0)
+      logrotate (>= 0.0.0)
+      pacman (>= 0.0.0)
     apt (2.4.0)
     build-essential (2.0.4)
     chef_handler (1.1.6)
@@ -12,6 +16,9 @@ SITE
       windows (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
+    iptables (0.13.2)
+    logrotate (1.6.0)
+    pacman (1.1.1)
     python (1.4.6)
       build-essential (>= 0.0.0)
       yum-epel (>= 0.0.0)
@@ -19,6 +26,9 @@ SITE
       build-essential (>= 0.0.0)
       yum (~> 3.0)
       yum-epel (>= 0.0.0)
+    subversion (1.1.2)
+      apache2 (~> 1.7)
+      windows (~> 1.10)
     windows (1.31.0)
       chef_handler (>= 0.0.0)
     yum (3.2.2)
@@ -28,11 +38,12 @@ SITE
 GIT
   remote: https://github.com/andygrunwald/chef-grimoire
   ref: master
-  sha: b674ffdad2f3f211899dbd7baeeeb5fc099b9618
+  sha: edec96ec9d4b5231aaabfabfc9c5ff151339144b
   specs:
     grimoire (0.0.1)
       git (>= 0.0.0)
       python (>= 0.0.0)
+      subversion (>= 0.0.0)
 
 DEPENDENCIES
   apt (>= 0)
